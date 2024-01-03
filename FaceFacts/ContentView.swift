@@ -8,31 +8,36 @@
 import SwiftData
 import SwiftUI
 
-
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
-    @State private var path = [Person]()
-    @Query var people: [Person]
+    @State private var path = NavigationPath()
+   
+    @State private var sortOrder = [SortDescriptor(\Person.name)]
+    @State private var searchText = ""
     
     var body: some View {
         NavigationStack(path: $path) {
-            List {
-                ForEach(people) { person in
-                    NavigationLink(value: person) {
-                        Text(person.name)
-                    }
+           PeopleView(searchString: searchText, sortOrder: sortOrder)
+                .navigationTitle("FaceFacts")
+                .navigationDestination(for: Person.self) { person in
+                    EditPersonView(person: person, navigationPath: $path)
+                    
                 }
-                .onDelete(perform: deletePeople)
-            }
-            .navigationTitle("FaceFacts")
-            .navigationDestination(for: Person.self) { person in
-                EditPersonView(person: person)
-                
-            }
-            .toolbar {
-                Button("Add Person", systemImage: "plus", action: addPerson)
+                .toolbar {
+                    Menu("Sort", systemImage: "arrow.up.arrow.down") {
+                        Picker("Sort", selection: $sortOrder) {
+                            Text("Name (A-Z)")
+                                .tag([SortDescriptor(\Person.name)])
+                            
+                            Text("Name (Z-A)")
+                                .tag([SortDescriptor(\Person.name, order: .reverse)])
+                        }
+                    }
+                    
+                    Button("Add Person", systemImage: "plus", action: addPerson)
 
-            }
+                }
+                .searchable(text: $searchText)
         }
     }
     
@@ -41,14 +46,16 @@ struct ContentView: View {
         modelContext.insert(person)
         path.append(person)
     }
-    func deletePeople(at offsets: IndexSet) {
-        for offset in offsets {
-            let person = people[offset]
-            modelContext.delete(person)
-        }
-    }
 }
 
 #Preview {
-    ContentView()
+    do {
+        let previewer = try Previewer()
+        
+        return ContentView()
+            .modelContainer(previewer.container)
+    } catch {
+        
+        return Text("Failed to create Preview:\(error.localizedDescription)")
+    }
 }

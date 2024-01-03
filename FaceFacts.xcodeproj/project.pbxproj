@@ -13,6 +13,10 @@
 		C5A351A32B44856800ECE0E7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5A351A22B44856800ECE0E7 /* Preview Assets.xcassets */; };
 		C5A351AA2B4485D700ECE0E7 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A351A92B4485D700ECE0E7 /* Person.swift */; };
 		C5A351AC2B4490A800ECE0E7 /* EditPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A351AB2B4490A800ECE0E7 /* EditPersonView.swift */; };
+		C5A351AE2B45B88B00ECE0E7 /* PeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A351AD2B45B88B00ECE0E7 /* PeopleView.swift */; };
+		C5A351B02B45C99E00ECE0E7 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A351AF2B45C99D00ECE0E7 /* Event.swift */; };
+		C5A351B22B45CBA500ECE0E7 /* EditEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A351B12B45CBA500ECE0E7 /* EditEventView.swift */; };
+		C5A351B42B45E45B00ECE0E7 /* Previewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A351B32B45E45B00ECE0E7 /* Previewer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,10 @@
 		C5A351A22B44856800ECE0E7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C5A351A92B4485D700ECE0E7 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		C5A351AB2B4490A800ECE0E7 /* EditPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonView.swift; sourceTree = "<group>"; };
+		C5A351AD2B45B88B00ECE0E7 /* PeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleView.swift; sourceTree = "<group>"; };
+		C5A351AF2B45C99D00ECE0E7 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		C5A351B12B45CBA500ECE0E7 /* EditEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventView.swift; sourceTree = "<group>"; };
+		C5A351B32B45E45B00ECE0E7 /* Previewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Previewer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +65,11 @@
 			children = (
 				C5A3519B2B44856500ECE0E7 /* FaceFactsApp.swift */,
 				C5A3519D2B44856500ECE0E7 /* ContentView.swift */,
+				C5A351AF2B45C99D00ECE0E7 /* Event.swift */,
 				C5A351AB2B4490A800ECE0E7 /* EditPersonView.swift */,
+				C5A351B12B45CBA500ECE0E7 /* EditEventView.swift */,
+				C5A351B32B45E45B00ECE0E7 /* Previewer.swift */,
+				C5A351AD2B45B88B00ECE0E7 /* PeopleView.swift */,
 				C5A351A92B4485D700ECE0E7 /* Person.swift */,
 				C5A3519F2B44856800ECE0E7 /* Assets.xcassets */,
 				C5A351A12B44856800ECE0E7 /* Preview Content */,
@@ -144,9 +156,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5A351AA2B4485D700ECE0E7 /* Person.swift in Sources */,
+				C5A351AE2B45B88B00ECE0E7 /* PeopleView.swift in Sources */,
 				C5A3519E2B44856500ECE0E7 /* ContentView.swift in Sources */,
+				C5A351B42B45E45B00ECE0E7 /* Previewer.swift in Sources */,
 				C5A3519C2B44856500ECE0E7 /* FaceFactsApp.swift in Sources */,
+				C5A351B02B45C99E00ECE0E7 /* Event.swift in Sources */,
 				C5A351AC2B4490A800ECE0E7 /* EditPersonView.swift in Sources */,
+				C5A351B22B45CBA500ECE0E7 /* EditEventView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
