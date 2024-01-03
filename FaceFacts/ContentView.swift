@@ -5,18 +5,47 @@
 //  Created by Mich balkany on 1/2/24.
 //
 
+import SwiftData
 import SwiftUI
 
 
 struct ContentView: View {
+    @Environment(\.modelContext) var modelContext
+    @State private var path = [Person]()
+    @Query var people: [Person]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack(path: $path) {
+            List {
+                ForEach(people) { person in
+                    NavigationLink(value: person) {
+                        Text(person.name)
+                    }
+                }
+                .onDelete(perform: deletePeople)
+            }
+            .navigationTitle("FaceFacts")
+            .navigationDestination(for: Person.self) { person in
+                EditPersonView(person: person)
+                
+            }
+            .toolbar {
+                Button("Add Person", systemImage: "plus", action: addPerson)
+
+            }
         }
-        .padding()
+    }
+    
+    func addPerson() {
+        let person = Person(name: "", emailAddress: "", details: "")
+        modelContext.insert(person)
+        path.append(person)
+    }
+    func deletePeople(at offsets: IndexSet) {
+        for offset in offsets {
+            let person = people[offset]
+            modelContext.delete(person)
+        }
     }
 }
 
